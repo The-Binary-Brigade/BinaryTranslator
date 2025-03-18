@@ -5,18 +5,24 @@
 
 using namespace std;
 
-int main() {
-    string Text = "";
-    string Filename = "Charaterset.csv";
+const string charSet = "CharacterSet.csv";
+
+static char convertToLower(string text) {
+    // Function to take first character of string and convert it to lowercase
+    char charToConvert = text[0];
+    return tolower(charToConvert);
+};
+
+static void convertToBinary() {
+    // Function to Translate to binary
+    string textToConvert;
 
     // Receive Inputs
-    cout << "Enter The Text you want converting: \n";
-    getline(cin, Text);
+    cout << "Enter the text you want to convert to binary: ";
+    getline(cin, textToConvert);
+    ifstream File(charSet);
 
-    // Function to Translate to binary
-    ifstream File(Filename);
-
-    for (char& c : Text) {
+    for (char& c : textToConvert) {
         string Line;
         string Binary;
         string SymbolStr;
@@ -38,6 +44,24 @@ int main() {
             if (Symbol == c) {
                 cout << Binary << " ";
             }
+        }
+    }
+};
+
+int main() {
+    string modeSelection;
+
+    cout << "Select the mode you'd like to use!" << endl;
+    while (true) {
+        cout << "Valid modes are 'B' (text to binary) and 'T' (binary to text)" << endl;
+        cout << "Selection: ";
+        getline(cin, modeSelection);
+        if (convertToLower(modeSelection) == 'b') {
+            convertToBinary();
+            break;
+        } else if (convertToLower(modeSelection) == 't') {
+            cout << "Not implemented!";
+            break;
         }
     }
 }
