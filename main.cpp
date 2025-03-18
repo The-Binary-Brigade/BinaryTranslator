@@ -46,6 +46,9 @@ static void convertToBinary() {
             }
         }
     }
+
+    cout << endl;
+
 };
 
 int main() {
