@@ -60,7 +60,6 @@ static void convertToText() {
 // Function to Translate to binary
 
 static void convertToBinary() {
-    // Function to Translate to binary
     string textToConvert;
 
     // Receive Inputs
@@ -89,6 +88,7 @@ static void convertToBinary() {
             // if the correct symbol is found, output the binary
             if (Symbol == c) {
                 cout << Binary << " ";
+                break;
             }
         }
     }
