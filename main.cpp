@@ -62,10 +62,10 @@ int main() {
         switch (convertToLower(modeSelection)) {
             case 'b':
                 convertToBinary();
-                break;
+                return 0;
             case 't':
                 cout << "Not implemented!";
-                break;
+                return 0;
             default:
                 continue;
         }
