@@ -56,12 +56,15 @@ int main() {
         cout << "Valid modes are 'B' (text to binary) and 'T' (binary to text)" << endl;
         cout << "Selection: ";
         getline(cin, modeSelection);
-        if (convertToLower(modeSelection) == 'b') {
-            convertToBinary();
-            break;
-        } else if (convertToLower(modeSelection) == 't') {
-            cout << "Not implemented!";
-            break;
+        switch (convertToLower(modeSelection)) {
+            case 'b':
+                convertToBinary();
+                break;
+            case 't':
+                cout << "Not implemented!";
+                break;
+            default:
+                continue;
         }
     }
 }
