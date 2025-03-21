@@ -1,9 +1,7 @@
 #include <iostream>
 #include <sstream>
-#include <string>
 #include <fstream>
 #include <algorithm>
-#include <cctype>
 
 using namespace std;
 
@@ -15,19 +13,18 @@ static char convertToLower(string text) {
     return tolower(charToConvert);
 };
 
-// Function to Translate binary to text
-
 static void convertToText() {
+    // Function to translate binary to text
     string binaryToCovert;
 
-    //recive Inputs
+    // Receive inputs
     cout << "Enter the ASCII binary that you want to convert: ";
     getline(cin, binaryToCovert);
     cout << endl;
 
     ifstream File(charSet);
 
-    //Remove Whitespace from the binary
+    // Remove whitespace from the input
     binaryToCovert.erase(remove_if(binaryToCovert.begin(), binaryToCovert.end(), 
     [](unsigned char c) { return std::isspace(c); }), binaryToCovert.end());
 
@@ -57,9 +54,9 @@ static void convertToText() {
     cout << endl;
     
 }
-// Function to Translate to binary
 
 static void convertToBinary() {
+    // Function to translate text to binary
     string textToConvert;
 
     // Receive Inputs
@@ -76,7 +73,7 @@ static void convertToBinary() {
         File.clear();
         File.seekg(0, ios::beg);
 
-        // Search the file for the Symbol
+        // Search the character set for the character
 
         while (getline(File, Line)) {
             stringstream StringStream(Line);
@@ -85,7 +82,7 @@ static void convertToBinary() {
             char Symbol = SymbolStr[0];
             getline(StringStream, Binary, ',');
 
-            // if the correct symbol is found, output the binary
+            // If the correct character is found, output the binary
             if (Symbol == c) {
                 cout << Binary << " ";
                 break;

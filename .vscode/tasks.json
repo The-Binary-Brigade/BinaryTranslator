@@ -10,7 +10,7 @@
                 "-std=c++17",
                 "main.cpp",
                 "-o",
-                "main"
+                "BinaryTranslator"
             ],
             "group": "build",
             "problemMatcher": [
